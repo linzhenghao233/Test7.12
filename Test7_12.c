@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <ctype.h>
+#define BASIC_WAGE 1000
 
 //1.
 //char ch;
@@ -103,3 +104,35 @@
 //}
 
 //7.
+//int main(void) {
+//	double time, total_wage, taxes, net_income;
+//	total_wage = taxes = net_income = 0;
+//
+//	printf("请输入一周工作的小时数：");
+//	scanf_s("%lf", &time);
+//	if (time <= 40) {
+//		total_wage = BASIC_WAGE * time;
+//		if (total_wage <= 300)
+//			taxes = total_wage * 0.15;
+//		else if (total_wage > 300 && total_wage <= 450)
+//			taxes = 300 * 0.15 + (total_wage - 300) * 0.20;
+//		else
+//			taxes = 300 * 0.15 + 150 * 0.20 + (total_wage - 450) * 0.25;
+//		net_income = total_wage - taxes;
+//	}
+//	else {
+//		total_wage = (double)BASIC_WAGE * 40 + BASIC_WAGE * (time - 40) * 1.5;
+//		if (total_wage <= 300)
+//			taxes = total_wage * 0.15;
+//		else if (total_wage > 300 && total_wage <= 450)
+//			taxes = 300 * 0.15 + (total_wage - 300) * 0.20;
+//		else
+//			taxes = 300 * 0.15 + 150 * 0.20 + (total_wage - 450) * 0.25;
+//		net_income = total_wage - taxes;
+//	}
+//	printf("工资总额：%g\n税金：%g\n净收入：%g", total_wage, taxes, net_income);;
+//
+//	return 0;
+//}
+
+//8.
