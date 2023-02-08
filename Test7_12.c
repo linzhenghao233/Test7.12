@@ -136,3 +136,21 @@
 //}
 
 //8.
+
+//9.
+int main(void) {
+	int n, i;
+
+	while (scanf_s("%d", &n) == 1) {
+		if (n > 0) {
+			for (i = 2; i <= n; i++) {
+				if (n % i == 0)
+					continue;
+				else
+					printf("%d", n);
+			}
+		}
+	}
+
+	return 0;
+}
