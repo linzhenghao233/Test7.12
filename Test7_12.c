@@ -139,17 +139,28 @@
 
 //9.
 int main(void) {
-	int n, i;
+	int n, i, j, status;
 
+	printf("请输入一个正整数：");
 	while (scanf_s("%d", &n) == 1) {
 		if (n > 0) {
+			printf("素数：\n");
 			for (i = 2; i <= n; i++) {
-				if (n % i == 0)
-					continue;
-				else
-					printf("%d", n);
+				status = 0;
+				for (j = 2; j < i; j++) {
+					if (i % j == 0) {
+						status = 1;
+						break;
+					}
+				}
+				if (status == 0) {
+					printf("%d\n", i);
+				}
 			}
 		}
+		else
+			printf("请输入正整数。");
+		printf("请输入一个正整数：");
 	}
 
 	return 0;
