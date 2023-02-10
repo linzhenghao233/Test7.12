@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <ctype.h>
 #define BASIC_WAGE 1000
+#define ARTICHOKE_PRICE 2.05
+#define BEET_PRICE 1.15
+#define CARROT_PRICE 1.09
 
 //1.
 //char ch;
@@ -138,29 +141,95 @@
 //8.
 
 //9.
-int main(void) {
-	int n, i, j, status;
+//int main(void) {
+//	int n, i, j, status;
+//
+//	printf("请输入一个正整数：");
+//	while (scanf_s("%d", &n) == 1) {
+//		if (n > 0) {
+//			printf("素数：\n");
+//			for (i = 2; i <= n; i++) {
+//				status = 0;
+//				for (j = 2; j < i; j++) {
+//					if (i % j == 0) {
+//						status = 1;
+//						break;
+//					}
+//				}
+//				if (status == 0) {
+//					printf("%d\n", i);
+//				}
+//			}
+//		}
+//		else
+//			printf("请输入正整数。");
+//		printf("请输入一个正整数：");
+//	}
+//
+//	return 0;
+//}
 
-	printf("请输入一个正整数：");
-	while (scanf_s("%d", &n) == 1) {
-		if (n > 0) {
-			printf("素数：\n");
-			for (i = 2; i <= n; i++) {
-				status = 0;
-				for (j = 2; j < i; j++) {
-					if (i % j == 0) {
-						status = 1;
-						break;
-					}
-				}
-				if (status == 0) {
-					printf("%d\n", i);
-				}
-			}
+//10.
+//int main(void) {
+//	double wage;
+//	int number;
+//
+//	printf("请输入你的工资：");
+//	while (scanf_s("%lf", &wage) == 1 && wage > 0) {
+//		printf("1)单身     2)户主\n");
+//		printf("3)已婚     4)离异\n");
+//		printf("请输入与你情况相对的序号：");
+//		scanf_s("%d", &number);
+//		switch (number) {
+//		case 1: {
+//			if (wage <= 17850)
+//				printf("%g应缴税%g\n", wage, wage * 0.15);
+//			else
+//				printf("%g应缴税%g\n", wage, 17850 * 0.15 + (wage - 17850) * 0.28);
+//		}
+//			  break;
+//		case 2: {
+//			if (wage <= 23900)
+//				printf("%g应缴税%g\n", wage, wage * 0.15);
+//			else
+//				printf("%g应缴税%g\n", wage, 23900 * 0.15 + (wage - 23900) * 0.28);
+//		}
+//			  break;
+//		case 3: {
+//			if (wage <= 29750)
+//				printf("%g应缴税%g\n", wage, wage * 0.15);
+//			else
+//				printf("%g应缴税%g\n", wage, 29750 * 0.15 + (wage - 29750) * 0.28);
+//		}
+//			  break;
+//		case 4: {
+//			if (wage <= 14875)
+//				printf("%g应缴税%g\n", wage, wage * 0.15);
+//			else
+//				printf("%g应缴税%g\n", wage, 14875 * 0.15 + (wage - 14875) * 0.28);
+//		}
+//			  break;
+//		default:printf("请输入1-4\n");
+//		}
+//		printf("请输入你的工资：");
+//	}
+//
+//	return 0;
+//}
+
+//11.
+int main(void) {
+	double artichoke, beet, carrot;
+	char option;
+
+	while (scanf("%c", &option) == 1 && option != 'q') {
+		switch (option) {
+		case 'a':
+			printf("洋蓟：2.05元/磅。需要多少磅：");
+			scanf_s("%0.2lf", &artichoke);
+			artichoke += artichoke;
+			printf("%g", artichoke);
 		}
-		else
-			printf("请输入正整数。");
-		printf("请输入一个正整数：");
 	}
 
 	return 0;
