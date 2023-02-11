@@ -219,17 +219,97 @@
 
 //11.
 int main(void) {
-	double artichoke, beet, carrot;
+	double artichoke, beet, carrot, a, b, c, price, weight;
+	artichoke = beet = carrot = price = weight = 0;
 	char option;
 
+	printf("a.洋蓟   b.甜菜   c.胡萝卜\n");
+	printf("请输入需要购买的物品的序号（输入q退出订购）:\n");
 	while (scanf("%c", &option) == 1 && option != 'q') {
 		switch (option) {
 		case 'a':
 			printf("洋蓟：2.05元/磅。需要多少磅：");
-			scanf_s("%0.2lf", &artichoke);
-			artichoke += artichoke;
-			printf("%g", artichoke);
+			scanf_s("%lf", &a);
+			artichoke += a;
+			printf("成功订购%g磅洋蓟。\n", a);
+			break;
+		case 'b':
+			printf("甜菜：1.15元/磅。需要多少磅：");
+			scanf_s("%lf", &b);
+			beet += b;
+			printf("成功订购%g磅甜菜。\n", b);
+			break;
+		case 'c':
+			printf("胡萝卜：1.09元/磅。需要多少磅：");
+			scanf_s("%lf", &c);
+			carrot += c;
+			printf("成功订购%g磅胡萝卜。\n", c);
+			break;
+		default:
+			printf("请输入正确的序号。\n");
 		}
+		printf("a.洋蓟   b.甜菜   c.胡萝卜\n");
+		printf("请输入需要购买的物品的序号（输入q退出订购）:\n");
+	}
+
+	if (artichoke >= 0 && beet >= 0 && carrot >= 0 && !(artichoke == 0 && beet == 0 && carrot == 0)) {
+		price = ARTICHOKE_PRICE * artichoke + BEET_PRICE * beet + CARROT_PRICE * carrot;
+		weight = artichoke + beet + carrot;
+		if (price >= 100) {
+			if (weight <= 5) {
+				printf("您订购了%g磅洋蓟，%g磅甜菜，%g磅胡萝卜。总共%g磅\n",
+					artichoke, beet, carrot, weight);
+				printf("超过或等于100元的订单享受5%的优惠！\n");
+				printf("本次订单打折%g元\n", price * 0.05);
+				printf("小于等于5磅的订单需要收取6.5元的运费和包装费。\n");
+				printf("所以您需要支付%g元蔬菜费用，%g元运费和包装费。总共%g元",
+					price * 0.95, 6.5, price * 0.95 + 6.5);
+			}
+			else if(weight > 5 && weight <= 20){
+				printf("您订购了%g磅洋蓟，%g磅甜菜，%g磅胡萝卜。总共%g磅\n",
+					artichoke, beet, carrot, weight);
+				printf("超过或等于100元的订单享受5%的优惠！\n");
+				printf("本次订单打折%g元\n", price * 0.05);
+				printf("大于5磅或者小于等于20磅的订单需要收取14元的运费和包装费。\n");
+				printf("所以您需要支付%g元蔬菜费用，%d元运费和包装费。总共%g元",
+					price * 0.95, 14 , price * 0.95 + 14);
+			}
+			else {
+				printf("您订购了%g磅洋蓟，%g磅甜菜，%g磅胡萝卜。总共%g磅\n",
+					artichoke, beet, carrot, weight);
+				printf("超过或等于100元的订单享受5%的优惠！\n");
+				printf("本次订单打折%g元\n", price * 0.05);
+				printf("超过20磅的订单在14元的基础上每续重1磅增加0.5元\n");
+				printf("所以您需要支付%g元蔬菜费用，%g元运费和包装费。总共%g元",
+					price * 0.95, 14 + (weight - 20) * 0.5, price * 0.95 + 14 + (weight - 20) * 0.5);
+			}
+		}
+		else {
+			if (weight <= 5) {
+				printf("您订购了%g磅洋蓟，%g磅甜菜，%g磅胡萝卜。总共%g磅\n",
+					artichoke, beet, carrot, weight);
+				printf("小于等于5磅的订单需要收取6.5元的运费和包装费。\n");
+				printf("所以您需要支付%g元蔬菜费用，%g元运费和包装费。总共%g元",
+					price, 6.5, price + 6.5);
+			}
+			else if (weight > 5 && weight <= 20) {
+				printf("您订购了%g磅洋蓟，%g磅甜菜，%g磅胡萝卜。总共%g磅\n",
+					artichoke, beet, carrot, weight);
+				printf("大于5磅或者小于等于20磅的订单需要收取14元的运费和包装费。\n");
+				printf("所以您需要支付%g元蔬菜费用，%d元运费和包装费。总共%g元",
+					price, 14, price + 14);
+			}
+			else {
+				printf("您订购了%g磅洋蓟，%g磅甜菜，%g磅胡萝卜。总共%g磅\n",
+					artichoke, beet, carrot, weight);
+				printf("超过20磅的订单在14元的基础上每续重1磅增加0.5元\n");
+				printf("所以您需要支付%g元蔬菜费用，%g元运费和包装费。总共%g元",
+					price, 14 + (weight - 20) * 0.5, price + 14 + (weight - 20) * 0.5);
+			}
+		}
+	}
+	else {
+		printf("未订购物品。");
 	}
 
 	return 0;
